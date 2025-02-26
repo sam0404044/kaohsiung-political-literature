@@ -150,6 +150,7 @@
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
   text-align: center;
   transition: transform 0.3s ease-in-out;
+  z-index: 3;
 }
 .card-custom:hover {
   transform: translateY(-5px); /* 懸停時微微浮起 */
