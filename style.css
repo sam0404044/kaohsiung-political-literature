@@ -1,0 +1,528 @@
+/* 初始狀態 (透明 & 向下位移) */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+/* 當元素進入可視範圍時的動畫 */
+.fade-in.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* 固定導覽列，讓它在滾動時保持在頂部 */
+.navbar {
+  background-color: #1b364c; /* 咖啡色背景 */
+  padding: 0px 10px; /* 增加上下左右間距 */
+  position: static;
+}
+.navbar-brand {
+  font-size: 2rem; /* 放大 LOGO 文字 */
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  color: white !important;
+}
+.navbar-brand img {
+  width: 60px; /* 放大 LOGO */
+  height: 60px;
+  margin-right: 15px;
+}
+.nav-item {
+  margin: 10 10px;
+  /* 增加選單項目之間的水平間距 */
+}
+.nav-link {
+  font-size: 1rem; /* 放大導覽字體 */
+  padding: 10px 20px; /* 增加按鈕間距 */
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  color: white !important;
+}
+.nav-link:hover {
+  background-color: white;
+  color: red !important;
+}
+.navbar-toggler {
+  border-color: white;
+}
+.navbar-toggler-icon {
+  filter: invert(1); /* 讓漢堡選單變白 */
+  width: 15px; /* 放大漢堡選單 */
+  height: 15px;
+}
+/* 移除漢堡選單按鈕的 Focus 樣式 */
+.navbar-toggler:focus,
+.navbar-toggler:active {
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+/* ///////////////////////////////section1/////////////////////////////////// */
+.section1 {
+  height: 50vh;
+  background: url("./img/s0.png") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.section1-title {
+  font-size: 6vh;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 0 black;
+  height: 40vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* /////////////////////////////setion2/////////////////////////////////////////////////// */
+.section2 {
+  background-color: #1b364c; /* 背景顏色 */
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.section2-card {
+  background-color: white; /* 圖卡背景 */
+  padding: 40px;
+  border-radius: 15px;
+  max-width: 1200px;
+  width: 90%;
+  display: flex;
+  align-items: center;
+}
+.section2-text {
+  color: #1b364c;
+  flex: 1;
+}
+.section2-title {
+  font-weight: bold;
+  font-size: clamp(28px, 4vw, 48px); /* RWD 標題 (最小 40px，最大 100px) */
+  margin-bottom: 20px;
+}
+.section2-content {
+  font-size: clamp(16px, 2vw, 25px); /* RWD 內文 (最小 16px，最大 25px) */
+}
+.section2-img {
+  flex-shrink: 0;
+  height: 40vh; /* 圖片固定 40vh 高度 */
+  width: auto;
+  max-width: 100%;
+  object-fit: cover;
+}
+/* ////////////////////////////section3//////////////////////////////////// */
+/* 背景漸層 */
+.section3 {
+  background: linear-gradient(to bottom, #99cddb, #8fadc7);
+  position: relative; /* 設定相對定位，讓內部絕對定位的元素參考 */
+  padding: 80px 0;
+  z-index: 0; /* 確保這個區塊本身有一個基準層級 */
+}
+
+/* 標題樣式 */
+.section3 h2 {
+  color: #1b364c;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+/* 分隔線 */
+.section3 hr {
+  border: none;
+  height: 4px;
+  background-color: #1b364c;
+  width: 100px;
+  margin: 0 0 30px 0;
+}
+
+/* 圖卡樣式 */
+.card-custom {
+  background-color: white;
+  border-radius: 20px; /* 大圓角 */
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+.card-custom:hover {
+  transform: translateY(-5px); /* 懸停時微微浮起 */
+}
+
+/* 圖片 */
+.card-img-top {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+/* 圖卡內容 */
+.card-body {
+  padding: 20px;
+  color: #35201b;
+}
+.card-body hr {
+  border: none;
+  height: 2px;
+  background-color: #631c1c;
+  width: 60%;
+  margin: 10px auto;
+}
+.card-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+.card-text {
+  font-size: 16px;
+}
+
+/* 裝飾圖片調整，確保不被背景覆蓋，但仍低於主要內容 */
+.decoration-img {
+  position: absolute;
+  z-index: 1; /* 讓圖片層級高於背景，但低於主要內容 */
+}
+
+/* 右上角裝飾圖片 (縮小為 1/3) */
+.decoration-img.top-right {
+  width: 33%; /* 縮小成三分之一 */
+  max-width: 120px; /* 確保不會過大 */
+  height: auto;
+  top: 20px;
+  right: 20px;
+}
+
+/* 右下角裝飾圖片 (接近圖卡大小) */
+.decoration-img.bottom-right {
+  width: 100%;
+  max-width: 350px; /* 限制最大寬度，使其接近圖卡大小 */
+  height: auto;
+  bottom: 20px;
+  right: 20px;
+}
+
+@media (max-width: 768px) {
+  .decoration-img.bottom-right {
+    display: none;
+  }
+}
+
+/* ////////////////////Section 4 - 大事年表//////////////////////// */
+.section4 {
+  background: linear-gradient(to bottom, #323150, #2b3052);
+  padding: 60px 0;
+  color: white;
+  position: relative;
+}
+
+/* 標題樣式 (與時代趨力相同) */
+.section4-header h2 {
+  color: #ffffff;
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+/* 分隔線 (淺色) */
+.section4-header hr {
+  width: 100px;
+  height: 4px;
+  background-color: #ffffff; /* 淺色分隔線 */
+  border: none;
+  margin-bottom: 20px;
+}
+
+/* Google 試算表容器 */
+.google-sheet iframe {
+  width: 100%;
+  height: 600px;
+  border-radius: 10px;
+  border: none;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Section 5 - 高雄勞工文學代表作家及作品 */
+.section5 {
+  background: linear-gradient(to bottom, #99c0db, #9aa1c7);
+  padding: 60px 0;
+  color: #1b364c; /* 讓文字統一為深紅色 */
+}
+
+/* 標題樣式 */
+.section5-header h2 {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 10px;
+  color: #1b364c; /* 標題顏色 */
+}
+
+/* 分隔線 (深紅色) */
+.section5-header hr {
+  width: 100px;
+  height: 4px;
+  background-color: #101f2c; /* 深紅色 */
+  border: none;
+  margin-bottom: 30px;
+}
+
+/* 圖卡區域 */
+.card-author {
+  background: white;
+  border-radius: 15px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease-in-out;
+}
+.card-author:hover {
+  transform: translateY(-5px);
+}
+
+/* 作家圖片 (圓形裁切) */
+.author-img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 20px;
+}
+
+/* 文字區塊 */
+.author-text h5 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #1b364c; /* 文字深紅色 */
+}
+.author-text p {
+  font-size: 16px;
+  margin: 0;
+  color: #1b364c; /* 文字深紅色 */
+}
+
+/* ////////////////////////Section 6 - 高雄勞工文學的空間場域////////////////////////// */
+.section6 {
+  background: linear-gradient(to bottom, #4d4b53, #554f5b);
+  padding: 60px 0;
+  color: #ffffff;
+}
+
+/* 標題樣式 (與 section3 相同) */
+.section6-header h2 {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+/* 分隔線 */
+.section6-header hr {
+  width: 100px;
+  height: 4px;
+  background-color: #ffffff; /* 深紅色 */
+  border: none;
+  margin-bottom: 30px;
+}
+
+/* 圖卡樣式 (與 section3 相同) */
+.card-custom {
+  background-color: white;
+  border-radius: 20px; /* 大圓角 */
+  overflow: hidden;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  text-align: center;
+  transition: transform 0.3s ease-in-out;
+}
+.card-custom:hover {
+  transform: translateY(-5px);
+}
+
+/* 圖片 */
+.card-img-top {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* 圖卡內容 */
+.card-body {
+  padding: 20px;
+  color: #1b364c;
+}
+.card-body hr {
+  border: none;
+  height: 2px;
+  background-color: #1b364c;
+  width: 60%;
+  margin: 10px auto;
+}
+.card-title {
+  font-size: 22px;
+  font-weight: bold;
+}
+.card-text {
+  font-size: 16px;
+}
+
+/* ////////////////////////Section 7 - 背景樣式////////////////////////// */
+.section7 {
+  background: linear-gradient(to bottom, #1f2c3d, #141a24); /* 深咖啡色漸層 */
+  color: #ffffff; /* 淺咖啡色字 */
+  padding: 60px 0;
+}
+
+/* 標題樣式 (與 section3 相同) */
+.section7-header h2 {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: bold;
+  text-align: left;
+  margin-bottom: 10px;
+}
+
+/* 分隔線 */
+.section7-header hr {
+  width: 100px;
+  height: 4px;
+  background-color: #ffffff; /* 深紅色 */
+  border: none;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: #fff; /* 白色卡片 */
+  color: #000; /* 文字黑色 */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* 確保圖片佔滿區塊 */
+}
+
+.card-body {
+  padding: 20px;
+}
+
+/* ////////////////////////Section 8 - 背景樣式////////////////////////// */
+.section8 {
+  background: linear-gradient(
+    to bottom,
+    #f3dada,
+    #dfcbcb
+  ); /* 亮淡紅色漸層（下方更深） */
+  color: #6b3030; /* 低彩度紅色文字 */
+  padding: 50px 0;
+  text-align: left;
+}
+
+.section8-title {
+  font-size: clamp(28px, 4vw, 48px);
+  font-weight: bold;
+  color: #8b4343; /* 低彩度深紅色 */
+  margin-bottom: 10px;
+}
+
+.section8 hr {
+  width: 80px;
+  height: 3px;
+  background-color: #a44a4a; /* 低彩度深紅色 */
+  border: none;
+}
+
+.card {
+  background: #fff; /* 白色卡片 */
+  color: #000; /* 黑色文字 */
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  text-align: center;
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover; /* 確保圖片佔滿區塊 */
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card ul {
+  padding-left: 20px;
+}
+
+.card ul li {
+  margin-bottom: 5px;
+}
+
+/* ////////////////////////Section 9 - 關於網站////////////////////////// */
+.section9 {
+  background-color: #4b4e5b; /* 背景顏色 */
+  padding: 50px 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* ////////////////////////Section 9 - 關於網站////////////////////////// */
+.section9card {
+  background-color: #dcddde; /* 淺咖啡色 */
+  color: #323232;
+  border-radius: 10px;
+  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+/* 文字內容區域 */
+.section9-text {
+  flex: 1;
+}
+
+/* 圖片區域 */
+.section9-img-container {
+  flex-shrink: 0;
+  max-width: 40%;
+}
+
+.section9-img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* RWD 調整：小螢幕時圖片放在上方 */
+@media (max-width: 991px) {
+  .section9card {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .section9-img-container {
+    max-width: 100%;
+  }
+}
+
+/* ////////////////////////Footer////////////////////////// */
+.footer a {
+  text-decoration: none;
+}
+
+.footer a:hover {
+  text-decoration: underline;
+}
